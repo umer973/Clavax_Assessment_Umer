@@ -1,0 +1,116 @@
+<div class="col-12" id="contents" style="">
+    <div class="row">
+        <div class="offset-md-2 offset-0 col-md-8 col-12" style="">
+            <div class="card">
+                <div class="card-header">
+                    <b>Address Details</b>
+                </div>
+
+                <div class="card-body">
+                    <form [formGroup]="AddressInfo">
+                        <input type="hidden" value="">
+                        <div class="modal-body">
+                            <div class="col-lg-12">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Address*</label>
+                                                    <input class="form-control" id="Address" name="Address"
+                                                        formControlName="Address" type="text">
+                                                    <div
+                                                        *ngIf="(f.Address.invalid && f.Address.touched) || f.Address.dirty">
+                                                        <small *ngIf="f.Address.errors?.required"
+                                                            class="text-danger">Address is required</small>
+                                                      
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Aditional*</label>
+                                                    <input class="form-control" id="Aditional" name="Aditional"
+                                                        formControlName="Aditional" type="text">
+                                                    <div
+                                                        *ngIf="(f.Aditional.invalid && f.Aditional.touched) || f.Aditional.dirty">
+                                                        <small *ngIf="f.Aditional.errors?.required"
+                                                            class="text-danger">Aditional is required</small>
+                                                        <!--question mark(?) is a safe navigation operator-->
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>Pin Code*</label>
+                                                    <input class="form-control" id="PinCode" name="PinCode"
+                                                        formControlName="PinCode" type="text">
+                                                    <div
+                                                        *ngIf="(f.PinCode.invalid && f.PinCode.touched) || f.PinCode.dirty">
+                                                        <small *ngIf="f.PinCode.errors?.required"
+                                                            class="text-danger">PinCode is required</small>
+                                                            <div  class="text-danger" *ngIf="f.PinCode.errors?.minlength || f.PinCode.errors?.maxlength">
+                                                              Pin code  should be atleast 6 digits
+                                                            </div>
+                                                            <div class='text-danger' *ngIf="f.PinCode.hasError('pattern')">
+                                                              Pincode can only contain numbers
+                                                            </div>
+                                                        <!--question mark(?) is a safe navigation operator-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>City*</label>
+                                                    <input class="form-control" id="City" name="City"
+                                                        formControlName="City" type="text">
+                                                    <div *ngIf="(f.City.invalid && f.City.touched) || f.City.dirty">
+                                                        <small *ngIf="f.City.errors?.required" class="text-danger">City
+                                                            is required</small>
+                                                        <!--question mark(?) is a safe navigation operator-->
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6 col-12">
+                                                <div class="form-group">
+                                                    <label>State*</label>
+                                                    <input class="form-control" id="State" name="State"
+                                                        formControlName="State" type="text">
+                                                    <div *ngIf="(f.State.invalid && f.State.touched) || f.State.dirty">
+                                                        <small *ngIf="f.State.errors?.required"
+                                                            class="text-danger">State is required</small>
+                                                        <!--question mark(?) is a safe navigation operator-->
+
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

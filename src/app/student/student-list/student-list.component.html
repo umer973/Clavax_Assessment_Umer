@@ -1,0 +1,23 @@
+<table class="table">
+    <tr>
+        <th>#</th>
+        <th>StudentName</th>
+        <th>Email</th>
+        <th>Date Of Birth</th>
+        <th>Gender</th>
+        <th>Address</th>
+      
+    </tr>
+    <tr *ngFor="let stu of studs; let i = index">
+        <td>{{i + 1}}</td>
+        <td (click)="show(stu.id)">{{stu.StudentName}}</td>
+        <td>{{stu.Email}}</td>
+        <td>{{stu.DateOfBirth}}</td>
+        <td>{{stu.Gender}}</td>
+        <td>{{stu.Address.Address}}</td>
+
+    </tr>
+</table>
+
+<br>
+<input type="button" (click)="AddStudent()" value="Add New">
