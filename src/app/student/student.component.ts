@@ -4,6 +4,7 @@ import { StudentService } from '../student.service';
 import { v4 as uuid } from 'uuid';
 import { StudentModal } from '../Modals/studentModal';
 import { ActivatedRoute, Router } from '@angular/router';
+import { JsonPipe } from '@angular/common';
 @Component({
   selector: 'app-student',
   templateUrl: './student.component.html',
@@ -39,13 +40,13 @@ export class StudentComponent implements OnInit {
       id: [null],
       StudentName: ['', [Validators.required, Validators.maxLength(56), Validators.pattern("^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$")]],
       Email: ['', [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$")]],
-      Mobile: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10), Validators.pattern("[0-9]*$")]],
+      Mobile: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(11), Validators.pattern("[0-9]*$")]],
       DateOfBirth: ['', Validators.required],
       Gender: ['', Validators.required],
       OtherReason: [''],
       Address: this.formBuilder.group({
         Address: new FormControl("", [Validators.required, Validators.maxLength(256)]),
-        Aditional: new FormControl("", [Validators.required, Validators.maxLength(256)]),
+        Aditional: new FormControl("", [Validators.maxLength(256)]),
         PinCode: new FormControl("", [Validators.required, Validators.minLength(6), Validators.maxLength(6), Validators.pattern("^[0-9]*$")]),
         City: new FormControl("", [Validators.required, Validators.maxLength(56)]),
         State: new FormControl("", [Validators.required, Validators.maxLength(56)])
@@ -75,22 +76,11 @@ export class StudentComponent implements OnInit {
   saveStudent() {
     try {
       if (this.studentForm.value) {
-        let newStudent = {
-          id: uuid(),
-          StudentName: this.studentForm.value.StudentName,
-          Email: this.studentForm.value.Email,
-          Mobile: this.studentForm.value.Mobile,
-          DateOfBirth: this.studentForm.value.DateOfBirth,
-          Gender: this.studentForm.value.Gender,
-          Address: this.studentForm.controls['Address'].value.Address,
-          Additional:  this.studentForm.controls['Address'].value.Additional,
-          PinCode:  this.studentForm.controls['Address'].value.PinCode,
-          State:  this.studentForm.controls['Address'].value.State,
-          City:  this.studentForm.controls['Address'].value.City,
+       
+        this.studentForm.value.id=uuid();
+        let data=JSON.stringify(this.studentForm.value);
 
-        }
-
-        this.studentServie.addStudent(newStudent);
+        this.studentServie.addStudent(JSON.parse(data));
         alert("Saved")
         this.router.navigate(['studentList']);
 

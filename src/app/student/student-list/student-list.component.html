@@ -1,20 +1,21 @@
 <table class="table">
     <tr>
-        <th>#</th>
+        <th>S.No</th>
         <th>StudentName</th>
         <th>Email</th>
-        <th>Date Of Birth</th>
-        <th>Gender</th>
-        <th>Address</th>
+        <th>Mobile</th>
+        <th>City</th>
+        <th>State</th>
       
     </tr>
     <tr *ngFor="let stu of studs; let i = index">
         <td>{{i + 1}}</td>
-        <td (click)="show(stu.id)">{{stu.StudentName}}</td>
+        <td (click)="show(stu.id)"  style="color: blue; cursor: pointer;"> {{stu.StudentName}}</td>
         <td>{{stu.Email}}</td>
-        <td>{{stu.DateOfBirth}}</td>
-        <td>{{stu.Gender}}</td>
-        <td>{{stu.Address.Address}}</td>
+        <td>{{stu.Mobile}}</td>
+
+        <td>{{stu.Address.City}}</td>
+        <td>{{stu.Address.State}}</td>
 
     </tr>
 </table>

@@ -20,19 +20,11 @@ export class StudentService {
     localStorage.setItem('students', JSON.stringify(stus));
   }
 
-  deleteStudent(id) {
-    let stus = JSON.parse(localStorage.getItem('students'));
-    for (let i = 0; i < stus.length; i++) {
-      if (stus[i].id == id) {
-        stus.splice(i, 1);
-      }
-    }
-    localStorage.setItem('students', JSON.stringify(stus));
-  }
+
 
   updateStudent(oldStudent, newStudent) {
     let stus = JSON.parse(localStorage.getItem('students'));
-    
+
     for (let i = 0; i < stus.length; i++) {
       if (stus[i].id == oldStudent.id) {
         stus[i] = newStudent;
@@ -52,9 +44,16 @@ export class StudentService {
           Mobile: "54333322111",
           DateOfBirth: "02/04/2022",
           Gender: "Male",
-          Address: "Jammu",
-          Aditional:"",
-          OtherReason:""
+
+          Address:{
+            "Address": "Jammu",
+            "Aditional": "Test",
+            "PinCode": "5555",
+            "City": "test",
+            "State": "J & k",
+            "therReason": ""
+            }
+
 
         },
         {
@@ -64,9 +63,16 @@ export class StudentService {
           Mobile: "54333322111",
           DateOfBirth: "02/04/2022",
           Gender: "Female",
-          Address: "Jammu",
-          Aditional:"",
-          OtherReason:""
+
+          Address:{
+            "Address": "Jammu",
+            "Aditional": "Test",
+            "PinCode": "5555",
+            "City": "test",
+            "State": "J & k",
+            "therReason": ""
+            }
+
         },
       ];
 
